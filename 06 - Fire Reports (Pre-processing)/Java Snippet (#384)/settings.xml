@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="settings.xml">
+<entry key="factory" type="xstring" value="org.knime.base.node.jsnippet.JavaSnippetNodeFactory"/>
+<entry key="node-name" type="xstring" value="Java Snippet"/>
+<entry key="node-bundle-name" type="xstring" value="KNIME Java Snippet Nodes (draft)"/>
+<entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.jsnippets"/>
+<entry key="node-bundle-vendor" type="xstring" value="KNIME GmbH, Konstanz, Germany"/>
+<config key="factory_settings"/>
+<entry key="node_file" type="xstring" value="settings.xml"/>
+<config key="flow_stack"/>
+<config key="internal_node_subsettings">
+<entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
+</config>
+<config key="model">
+<entry key="scriptImports" type="xstring" value="// Your custom imports:%%00010import java.text.SimpleDateFormat;%%00010import java.util.Locale;%%00010import java.util.regex.Pattern;%%00010import java.util.regex.Matcher;%%00010import java.text.ParseException;%%00010"/>
+<entry key="scriptFields" type="xstring" value="// Your custom variables:%%00010final static private Pattern latitudePat = Pattern.compile(&quot;Latitude:\\s*&lt;/b&gt;([^&lt;]+).*&quot;);%%00010final static private Pattern longitudePat = Pattern.compile(&quot;Longitude:\\s*&lt;/b&gt;([^&lt;]+).*&quot;);%%00010final static private Pattern datePat = Pattern.compile(&quot;Date:\\s*&lt;/b&gt;([^&lt;]+).*&quot;);%%00010final static private Pattern timePat = Pattern.compile(&quot;Time:\\s*&lt;/b&gt;([^&lt;]+).*&quot;);%%00010final static private Pattern confidencePat = Pattern.compile(&quot;Confidence:\\s*&lt;/b&gt;([^&lt;]+).*&quot;);%%00010final static private Pattern sensorPat = Pattern.compile(&quot;Sensor:\\s*&lt;/b&gt;([^&lt;]+).*&quot;);%%00010final static private Pattern sourcePat = Pattern.compile(&quot;Source:\\s*&lt;/b&gt;([^&lt;]+).*&quot;);%%00010%%00010private Matcher m;%%00010"/>
+<entry key="scriptBody" type="xstring" value="// Enter your code here:%%00010%%00010if(c_Description == null) return;%%00010%%00010m = latitudePat.matcher(c_Description);%%00010out_Latitude = m.find() ? Double.parseDouble(m.group(1)) : Double.NaN;%%00010%%00010m = longitudePat.matcher(c_Description);%%00010out_Longitude = m.find() ? Double.parseDouble(m.group(1)) : Double.NaN;%%00010%%00010m = confidencePat.matcher(c_Description);%%00010out_DetectionConfidence = m.find() ? Integer.parseInt(m.group(1)) : 0;%%00010%%00010m = sensorPat.matcher(c_Description);%%00010out_DetectionSensor = m.find() ? m.group(1) : &quot;&quot;;%%00010%%00010m = sourcePat.matcher(c_Description);%%00010out_DetectionSource = m.find() ? m.group(1) : &quot;&quot;;%%00010%%00010m = datePat.matcher(c_Description);%%00010final String dateStr = m.find() ? m.group(1) : &quot;&quot;;%%00010%%00010m = timePat.matcher(c_Description);%%00010final String timeStr = m.find() ? m.group(1) : &quot;&quot;;%%00010%%00010try {%%00010 out_DetectionDateTime = new SimpleDateFormat(&quot;dd MMM yyyy HH:mm z&quot;, Locale.ENGLISH).parse(dateStr + &quot; &quot; + timeStr);%%00010} catch(ParseException e) {%%00010%%00009out_DetectionDateTime = null;%%00010}%%00010"/>
+<config key="jarFiles">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="outCols">
+<entry key="array-size" type="xint" value="6"/>
+<config key="0">
+<entry key="Name" type="xstring" value="Detection DateTime"/>
+<entry key="JavaName" type="xstring" value="out_DetectionDateTime"/>
+<entry key="JavaType" type="xstring" value="java.util.Date"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.date.DateAndTimeCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+<entry key="replaceExisting" type="xboolean" value="false"/>
+</config>
+<config key="1">
+<entry key="Name" type="xstring" value="Detection Sensor"/>
+<entry key="JavaName" type="xstring" value="out_DetectionSensor"/>
+<entry key="JavaType" type="xstring" value="java.lang.String"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+<entry key="replaceExisting" type="xboolean" value="false"/>
+</config>
+<config key="2">
+<entry key="Name" type="xstring" value="Detection Source"/>
+<entry key="JavaName" type="xstring" value="out_DetectionSource"/>
+<entry key="JavaType" type="xstring" value="java.lang.String"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+<entry key="replaceExisting" type="xboolean" value="false"/>
+</config>
+<config key="3">
+<entry key="Name" type="xstring" value="Detection Confidence"/>
+<entry key="JavaName" type="xstring" value="out_DetectionConfidence"/>
+<entry key="JavaType" type="xstring" value="java.lang.Integer"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.IntCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+<entry key="replaceExisting" type="xboolean" value="false"/>
+</config>
+<config key="4">
+<entry key="Name" type="xstring" value="Latitude"/>
+<entry key="JavaName" type="xstring" value="out_Latitude"/>
+<entry key="JavaType" type="xstring" value="java.lang.Double"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+<entry key="replaceExisting" type="xboolean" value="false"/>
+</config>
+<config key="5">
+<entry key="Name" type="xstring" value="Longitude"/>
+<entry key="JavaName" type="xstring" value="out_Longitude"/>
+<entry key="JavaType" type="xstring" value="java.lang.Double"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+<entry key="replaceExisting" type="xboolean" value="false"/>
+</config>
+</config>
+<config key="outVars">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="inCols">
+<entry key="array-size" type="xint" value="1"/>
+<config key="0">
+<entry key="Name" type="xstring" value="Description"/>
+<entry key="JavaName" type="xstring" value="c_Description"/>
+<entry key="JavaType" type="xstring" value="java.lang.String"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+</config>
+</config>
+<config key="inVars">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<entry key="version" type="xstring" value="version 1.x"/>
+<entry key="templateUUID" type="xstring" isnull="true" value=""/>
+<entry key="runOnExecute" type="xboolean" value="false"/>
+</config>
+<config key="nodeAnnotation">
+<entry key="text" type="xstring" value="Parse Description:%%00010Latitude, Longitude, Date, ..."/>
+<entry key="bgcolor" type="xint" value="16777215"/>
+<entry key="x-coordinate" type="xint" value="497"/>
+<entry key="y-coordinate" type="xint" value="425"/>
+<entry key="width" type="xint" value="175"/>
+<entry key="height" type="xint" value="30"/>
+<entry key="alignment" type="xstring" value="CENTER"/>
+<config key="styles"/>
+</config>
+<entry key="customDescription" type="xstring" isnull="true" value=""/>
+<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="name" type="xstring" value="Java Snippet"/>
+<entry key="hasContent" type="xboolean" value="true"/>
+<entry key="isInactive" type="xboolean" value="false"/>
+<config key="ports">
+<config key="port_1">
+<entry key="index" type="xint" value="1"/>
+<entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
+<entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
+<entry key="port_object_summary" type="xstring" value="Rows: 388, Cols: 10"/>
+<entry key="port_dir_location" type="xstring" value="port_1"/>
+</config>
+</config>
+<config key="filestores">
+<entry key="file_store_location" type="xstring" isnull="true" value=""/>
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
+</config>
+</config>

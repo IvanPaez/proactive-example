@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="table_meta_info">
+<entry key="table_ID" type="xint" value="363728"/>
+<entry key="table_type" type="xstring" value="concatenate_table"/>
+<config key="table_references">
+<entry key="array-size" type="xint" value="12"/>
+<entry key="0" type="xstring" value="reference_0"/>
+<entry key="1" type="xstring" value="reference_1"/>
+<entry key="2" type="xstring" value="reference_2"/>
+<entry key="3" type="xstring" value="reference_3"/>
+<entry key="4" type="xstring" value="reference_4"/>
+<entry key="5" type="xstring" value="reference_5"/>
+<entry key="6" type="xstring" value="reference_6"/>
+<entry key="7" type="xstring" value="reference_7"/>
+<entry key="8" type="xstring" value="reference_8"/>
+<entry key="9" type="xstring" value="reference_9"/>
+<entry key="10" type="xstring" value="reference_10"/>
+<entry key="11" type="xstring" value="reference_11"/>
+</config>
+<config key="meta_internal">
+<config key="table_reference_IDS">
+<entry key="array-size" type="xint" value="12"/>
+<entry key="0" type="xint" value="363706"/>
+<entry key="1" type="xint" value="363707"/>
+<entry key="2" type="xint" value="363710"/>
+<entry key="3" type="xint" value="363712"/>
+<entry key="4" type="xint" value="363714"/>
+<entry key="5" type="xint" value="363716"/>
+<entry key="6" type="xint" value="363718"/>
+<entry key="7" type="xint" value="363720"/>
+<entry key="8" type="xint" value="363722"/>
+<entry key="9" type="xint" value="363724"/>
+<entry key="10" type="xint" value="363726"/>
+<entry key="11" type="xint" value="363727"/>
+</config>
+<entry key="table_rowcount" type="xint" value="21803"/>
+</config>
+<entry key="table_file_name" type="xstring" isnull="true" value=""/>
+</config>

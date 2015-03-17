@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="settings.xml">
+<entry key="factory" type="xstring" value="de.mpicbg.tds.knime.scripting.python.plots.PythonPlotNodeFactory"/>
+<entry key="node-name" type="xstring" value="Python Plot"/>
+<entry key="node-bundle-name" type="xstring" value="Ptyhon Integration for KNIME"/>
+<entry key="node-bundle-symbolic-name" type="xstring" value="de.mpicbg.tds.knime.scripting.python"/>
+<entry key="node-bundle-vendor" type="xstring" value="Max Planck Institute of Molecular Cell Biology and Genetics (MPI-CBG)"/>
+<config key="factory_settings"/>
+<entry key="node_file" type="xstring" value="settings.xml"/>
+<config key="flow_stack"/>
+<config key="internal_node_subsettings">
+<entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
+</config>
+<config key="model">
+<config key="figure.width_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="figure.width" type="xint" value="1200"/>
+<config key="figure.height_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="figure.height" type="xint" value="700"/>
+<config key="figure.output.file_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="figure.output.file" type="xstring" value=""/>
+<config key="overwrite.ok_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="overwrite.ok" type="xboolean" value="false"/>
+<config key="node.script_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="node.script" type="xstring" value="##################################################################################%%00010import matplotlib.ticker as ticker%%00010import re%%00010import numpy%%00010%%00010from pylab import *%%00010rcParams['figure.figsize'] = 11, 4%%00010%%00010METRIC = re.sub(r'[^a-zA-Z0-9\s]', '', kIn['Metric'][0])%%00010%%00010systems = [ k for k in kIn.keys() if k != 'Metric' ]%%00010%%00010%%00010data = [ kIn[s] for s in systems ]%%00010%%00010fig, ax = plt.subplots()%%00010ax.boxplot(data)%%00010%%00010#title('Comparison of different systems using metric: ' + METRIC)%%00010ylabel('Factor relative to the Reactive system\n(lower is better)')%%00010%%00010TOP = 1.2%%00010ylim(0, TOP)%%00010%%00010grid(True, linestyle='-', which='major', color='lightgrey', alpha=0.5)%%00010%%00010systems.insert(0, '')%%00010numBoxes = len(systems)%%00010%%00010pos = np.arange(numBoxes)+1%%00010for tick,label in zip(range(numBoxes),ax.get_xticklabels()):%%00010   ax.text(pos[tick], TOP-(TOP*0.04), &quot;%.2f&quot; % mean(data[tick]),%%00010        ha='center', va='top', rotation='vertical', size='x-small',%%00010        color='r', weight='bold')%%00010%%00010xticks(range(len(systems)), systems,%%00010  fontsize='small',%%00010  rotation=90,%%00010  ha='center', va='top' )%%00010%%00010ax.yaxis.set_major_formatter(ticker.FormatStrFormatter('%.1fx'))%%00010ax.set_axisbelow(True)%%00010%%00010imgname = &quot;out-systems-boxplot-&quot; + METRIC%%00010%%00010savefig(imgname + &quot;.png&quot;, format='png', bbox_inches='tight')%%00010savefig(imgname + &quot;.pdf&quot;, format='pdf', bbox_inches='tight')"/>
+<config key="node.template_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="node.template" type="xstring" value=""/>
+</config>
+<config key="nodeAnnotation">
+<entry key="text" type="xstring" value="Boxplot"/>
+<entry key="bgcolor" type="xint" value="16777215"/>
+<entry key="x-coordinate" type="xint" value="948"/>
+<entry key="y-coordinate" type="xint" value="554"/>
+<entry key="width" type="xint" value="130"/>
+<entry key="height" type="xint" value="15"/>
+<entry key="alignment" type="xstring" value="CENTER"/>
+<config key="styles"/>
+</config>
+<entry key="customDescription" type="xstring" isnull="true" value=""/>
+<entry key="state" type="xstring" value="CONFIGURED"/>
+<config key="nodecontainer_message">
+<entry key="type" type="xstring" value="ERROR"/>
+<entry key="message" type="xstring" value="Execute failed: No output image found"/>
+</config>
+<entry key="name" type="xstring" value="Python Plot"/>
+<entry key="hasContent" type="xboolean" value="false"/>
+<entry key="isInactive" type="xboolean" value="false"/>
+<config key="ports">
+<config key="port_1">
+<entry key="index" type="xint" value="1"/>
+<entry key="port_dir_location" type="xstring" isnull="true" value=""/>
+</config>
+</config>
+<config key="filestores">
+<entry key="file_store_location" type="xstring" isnull="true" value=""/>
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
+</config>
+</config>

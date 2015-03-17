@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="settings.xml">
+<entry key="factory" type="xstring" value="org.knime.base.node.jsnippet.JavaSnippetNodeFactory"/>
+<entry key="node-name" type="xstring" value="Java Snippet"/>
+<entry key="node-bundle-name" type="xstring" value="KNIME Java Snippet Nodes (draft)"/>
+<entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.jsnippets"/>
+<entry key="node-bundle-vendor" type="xstring" value="KNIME GmbH, Konstanz, Germany"/>
+<config key="factory_settings"/>
+<entry key="node_file" type="xstring" value="settings.xml"/>
+<config key="flow_stack"/>
+<config key="internal_node_subsettings">
+<entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
+</config>
+<config key="model">
+<entry key="scriptImports" type="xstring" value="import proact.eval.knime.PredictiveSystem;%%00010"/>
+<entry key="scriptFields" type="xstring" value="final PredictiveSystem sys = new PredictiveSystem();%%00010"/>
+<entry key="scriptBody" type="xstring" value="%%00010// init system%%00010sys.setHoursInFuture(v_FPloop_value);%%00010sys.setCheckWholeInterval(false);%%00010sys.setSpeedupWithoutPrediction(false);%%00010sys.setSlowdownWithoutPrediction(false);%%00010%%00010// inputs%%00010sys.in_lastHourFP    = c_FirePotential1;%%00010sys.in_currentHourFP = c_FirePotential;%%00010sys.in_predictedFP   = new String[] {c_FP1, c_FP2, c_FP3, c_FP4, c_FP5, c_FP6, c_FP7};%%00010sys.in_FireCount     = c_FireCount;%%00010%%00010// executes single step%%00010sys.execute();%%00010%%00010// outputs%%00010out_FiresInPeriod = sys.out_FiresInPeriod;%%00010out_Reconfig      = sys.out_Reconfig;%%00010out_System        = sys.toString();%%00010"/>
+<config key="jarFiles">
+<entry key="array-size" type="xint" value="1"/>
+<entry key="0" type="xstring" value="/home/vlx/Documents/KIT/SEAMS14-proact/simulated-system.jar"/>
+</config>
+<config key="outCols">
+<entry key="array-size" type="xint" value="3"/>
+<config key="0">
+<entry key="Name" type="xstring" value="Fires In Period"/>
+<entry key="JavaName" type="xstring" value="out_FiresInPeriod"/>
+<entry key="JavaType" type="xstring" value="java.lang.Integer"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.IntCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+<entry key="replaceExisting" type="xboolean" value="false"/>
+</config>
+<config key="1">
+<entry key="Name" type="xstring" value="Reconfig"/>
+<entry key="JavaName" type="xstring" value="out_Reconfig"/>
+<entry key="JavaType" type="xstring" value="java.lang.Boolean"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.BooleanCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+<entry key="replaceExisting" type="xboolean" value="false"/>
+</config>
+<config key="2">
+<entry key="Name" type="xstring" value="System"/>
+<entry key="JavaName" type="xstring" value="out_System"/>
+<entry key="JavaType" type="xstring" value="java.lang.String"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+<entry key="replaceExisting" type="xboolean" value="false"/>
+</config>
+</config>
+<config key="outVars">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="inCols">
+<entry key="array-size" type="xint" value="10"/>
+<config key="0">
+<entry key="Name" type="xstring" value="FP+1"/>
+<entry key="JavaName" type="xstring" value="c_FP1"/>
+<entry key="JavaType" type="xstring" value="java.lang.String"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+</config>
+<config key="1">
+<entry key="Name" type="xstring" value="FireCount"/>
+<entry key="JavaName" type="xstring" value="c_FireCount"/>
+<entry key="JavaType" type="xstring" value="java.lang.Integer"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.IntCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+</config>
+<config key="2">
+<entry key="Name" type="xstring" value="FirePotential"/>
+<entry key="JavaName" type="xstring" value="c_FirePotential"/>
+<entry key="JavaType" type="xstring" value="java.lang.String"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+</config>
+<config key="3">
+<entry key="Name" type="xstring" value="FP+2"/>
+<entry key="JavaName" type="xstring" value="c_FP2"/>
+<entry key="JavaType" type="xstring" value="java.lang.String"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+</config>
+<config key="4">
+<entry key="Name" type="xstring" value="FP+3"/>
+<entry key="JavaName" type="xstring" value="c_FP3"/>
+<entry key="JavaType" type="xstring" value="java.lang.String"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+</config>
+<config key="5">
+<entry key="Name" type="xstring" value="FP+4"/>
+<entry key="JavaName" type="xstring" value="c_FP4"/>
+<entry key="JavaType" type="xstring" value="java.lang.String"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+</config>
+<config key="6">
+<entry key="Name" type="xstring" value="FP+5"/>
+<entry key="JavaName" type="xstring" value="c_FP5"/>
+<entry key="JavaType" type="xstring" value="java.lang.String"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+</config>
+<config key="7">
+<entry key="Name" type="xstring" value="FirePotential(-1)"/>
+<entry key="JavaName" type="xstring" value="c_FirePotential1"/>
+<entry key="JavaType" type="xstring" value="java.lang.String"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+</config>
+<config key="8">
+<entry key="Name" type="xstring" value="FP+6"/>
+<entry key="JavaName" type="xstring" value="c_FP6"/>
+<entry key="JavaType" type="xstring" value="java.lang.String"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+</config>
+<config key="9">
+<entry key="Name" type="xstring" value="FP+7"/>
+<entry key="JavaName" type="xstring" value="c_FP7"/>
+<entry key="JavaType" type="xstring" value="java.lang.String"/>
+<config key="Type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+</config>
+</config>
+<config key="inVars">
+<entry key="array-size" type="xint" value="1"/>
+<config key="0">
+<entry key="Name" type="xstring" value="FPloop_value"/>
+<entry key="JavaName" type="xstring" value="v_FPloop_value"/>
+<entry key="JavaType" type="xstring" value="java.lang.Integer"/>
+<entry key="Type" type="xstring" value="INTEGER"/>
+</config>
+</config>
+<entry key="version" type="xstring" value="version 1.x"/>
+<entry key="templateUUID" type="xstring" isnull="true" value=""/>
+<entry key="runOnExecute" type="xboolean" value="false"/>
+</config>
+<config key="nodeAnnotation">
+<entry key="text" type="xstring" value="Predictive(X)UD"/>
+<entry key="bgcolor" type="xint" value="16777215"/>
+<entry key="x-coordinate" type="xint" value="232"/>
+<entry key="y-coordinate" type="xint" value="240"/>
+<entry key="width" type="xint" value="130"/>
+<entry key="height" type="xint" value="15"/>
+<entry key="alignment" type="xstring" value="CENTER"/>
+<config key="styles"/>
+</config>
+<entry key="customDescription" type="xstring" isnull="true" value=""/>
+<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="name" type="xstring" value="Java Snippet"/>
+<entry key="hasContent" type="xboolean" value="true"/>
+<entry key="isInactive" type="xboolean" value="false"/>
+<config key="ports">
+<config key="port_1">
+<entry key="index" type="xint" value="1"/>
+<entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
+<entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
+<entry key="port_object_summary" type="xstring" value="Rows: 5881, Cols: 13"/>
+<entry key="port_dir_location" type="xstring" value="port_1"/>
+</config>
+</config>
+<config key="filestores">
+<entry key="file_store_location" type="xstring" isnull="true" value=""/>
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
+</config>
+</config>

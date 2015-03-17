@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="settings.xml">
+<entry key="factory" type="xstring" value="org.knime.base.filehandling.download2.DownloadNodeFactory"/>
+<entry key="node-name" type="xstring" value="Download"/>
+<entry key="node-bundle-name" type="xstring" value="KNIME File Handling Nodes"/>
+<entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.base.filehandling"/>
+<entry key="node-bundle-vendor" type="xstring" value="KNIME GmbH, Konstanz, Germany"/>
+<config key="factory_settings"/>
+<entry key="node_file" type="xstring" value="settings.xml"/>
+<config key="flow_stack"/>
+<config key="internal_node_subsettings">
+<entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
+</config>
+<config key="model">
+<entry key="source" type="xstring" value="http://activefiremaps.fs.fed.us/data/kml/conus_hist/2010/"/>
+<entry key="target" type="xstring" value="/tmp"/>
+<entry key="overwritepolicy" type="xstring" value="Abort"/>
+<entry key="pathhandling" type="xstring" value="Use only filename"/>
+<entry key="prefix" type="xstring" value=""/>
+<entry key="subfolders" type="xboolean" value="false"/>
+<entry key="usefilter" type="xboolean" value="false"/>
+<entry key="filtertype" type="xstring" value="Wildcard"/>
+<entry key="filterpattern" type="xstring" value="conus_2010????.kmz"/>
+<entry key="abortonfail" type="xboolean" value="true"/>
+</config>
+<config key="variables">
+<config key="source">
+<entry key="used_variable" type="xstring" value="KMZ URI"/>
+<entry key="exposed_variable" type="xstring" isnull="true" value=""/>
+</config>
+<config key="target">
+<entry key="used_variable" type="xstring" value="dir_Download"/>
+<entry key="exposed_variable" type="xstring" isnull="true" value=""/>
+</config>
+</config>
+<config key="nodeAnnotation">
+<entry key="text" type="xstring" value="Download may fail"/>
+<entry key="bgcolor" type="xint" value="16777215"/>
+<entry key="x-coordinate" type="xint" value="595"/>
+<entry key="y-coordinate" type="xint" value="200"/>
+<entry key="width" type="xint" value="130"/>
+<entry key="height" type="xint" value="15"/>
+<entry key="alignment" type="xstring" value="CENTER"/>
+<config key="styles"/>
+</config>
+<entry key="customDescription" type="xstring" isnull="true" value=""/>
+<entry key="state" type="xstring" value="IDLE"/>
+<config key="nodecontainer_message">
+<entry key="type" type="xstring" value="ERROR"/>
+<entry key="message" type="xstring" value="Execution failed in Try-Catch block: File /home/vlx/Apps/knime_2.9.0/workspace/MapsDownload/AVHRR/conus_20101231.kmz already exists."/>
+</config>
+<entry key="name" type="xstring" value="Download"/>
+<entry key="hasContent" type="xboolean" value="false"/>
+<entry key="isInactive" type="xboolean" value="false"/>
+<config key="ports">
+<config key="port_1">
+<entry key="index" type="xint" value="1"/>
+<entry key="port_dir_location" type="xstring" isnull="true" value=""/>
+</config>
+</config>
+<config key="filestores">
+<entry key="file_store_location" type="xstring" isnull="true" value=""/>
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
+</config>
+</config>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="settings.xml">
+<entry key="factory" type="xstring" value="org.knime.base.node.preproc.domain.DomainNodeFactory"/>
+<entry key="node-name" type="xstring" value="Domain Calculator"/>
+<entry key="node-bundle-name" type="xstring" value="KNIME Base Nodes"/>
+<entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.base"/>
+<entry key="node-bundle-vendor" type="xstring" value="KNIME GmbH, Konstanz, Germany"/>
+<config key="factory_settings"/>
+<entry key="node_file" type="xstring" value="settings.xml"/>
+<config key="flow_stack"/>
+<config key="internal_node_subsettings">
+<entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
+</config>
+<config key="model">
+<config key="possible_values_columns">
+<entry key="array-size" type="xint" value="1"/>
+<entry key="0" type="xstring" value="Metric"/>
+</config>
+<config key="min_max_columns">
+<entry key="array-size" type="xint" value="31"/>
+<entry key="0" type="xstring" value="Reactive"/>
+<entry key="1" type="xstring" value="Simple(every 1h)"/>
+<entry key="2" type="xstring" value="Simple(every 2h)"/>
+<entry key="3" type="xstring" value="Simple(every 3h)"/>
+<entry key="4" type="xstring" value="Simple(every 4h)"/>
+<entry key="5" type="xstring" value="Simple(every 5h)"/>
+<entry key="6" type="xstring" value="Simple(every 6h)"/>
+<entry key="7" type="xstring" value="Simple(every 7h)"/>
+<entry key="8" type="xstring" value="Simple(every 8h)"/>
+<entry key="9" type="xstring" value="Simple(every 12h)"/>
+<entry key="10" type="xstring" value="Simple(every 24h)"/>
+<entry key="11" type="xstring" value="Predictive(1)"/>
+<entry key="12" type="xstring" value="Predictive(2)"/>
+<entry key="13" type="xstring" value="Predictive(3)"/>
+<entry key="14" type="xstring" value="Predictive(4)"/>
+<entry key="15" type="xstring" value="Predictive(5)"/>
+<entry key="16" type="xstring" value="Predictive(1)U"/>
+<entry key="17" type="xstring" value="Predictive(2)U"/>
+<entry key="18" type="xstring" value="Predictive(3)U"/>
+<entry key="19" type="xstring" value="Predictive(4)U"/>
+<entry key="20" type="xstring" value="Predictive(5)U"/>
+<entry key="21" type="xstring" value="Predictive(1)D"/>
+<entry key="22" type="xstring" value="Predictive(2)D"/>
+<entry key="23" type="xstring" value="Predictive(3)D"/>
+<entry key="24" type="xstring" value="Predictive(4)D"/>
+<entry key="25" type="xstring" value="Predictive(5)D"/>
+<entry key="26" type="xstring" value="Predictive(1)Di"/>
+<entry key="27" type="xstring" value="Predictive(2)Di"/>
+<entry key="28" type="xstring" value="Predictive(3)Di"/>
+<entry key="29" type="xstring" value="Predictive(4)Di"/>
+<entry key="30" type="xstring" value="Predictive(5)Di"/>
+</config>
+<entry key="max_poss_values" type="xint" value="-1"/>
+<entry key="possible_values_unselected_retain" type="xboolean" value="true"/>
+<entry key="min_max_unselected_retain" type="xboolean" value="true"/>
+</config>
+<entry key="customDescription" type="xstring" isnull="true" value=""/>
+<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="name" type="xstring" value="Domain Calculator"/>
+<entry key="hasContent" type="xboolean" value="true"/>
+<entry key="isInactive" type="xboolean" value="false"/>
+<config key="ports">
+<config key="port_1">
+<entry key="index" type="xint" value="1"/>
+<entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
+<entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
+<entry key="port_object_summary" type="xstring" value="Rows: 71, Cols: 39"/>
+<entry key="port_dir_location" type="xstring" value="port_1"/>
+</config>
+</config>
+<config key="filestores">
+<entry key="file_store_location" type="xstring" isnull="true" value=""/>
+<entry key="file_store_id" type="xstring" value="f1453e50-f57f-442e-b16a-fcaaad60d646"/>
+</config>
+</config>
