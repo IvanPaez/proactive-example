@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="settings.xml">
+<entry key="factory" type="xstring" value="org.knime.ext.weka37.classifier.WekaClassifierNodeFactory"/>
+<entry key="node-name" type="xstring" value="FT (3.7)"/>
+<entry key="node-bundle-name" type="xstring" value="KNIME WEKA nodes (3.7)"/>
+<entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.ext.weka_3.7"/>
+<entry key="node-bundle-vendor" type="xstring" value="KNIME GmbH, Konstanz, Germany"/>
+<config key="factory_settings">
+<entry key="weka-class" type="xstring" value="weka.classifiers.trees.FT"/>
+<entry key="weka-version" type="xstring" value="3.7"/>
+</config>
+<entry key="node_file" type="xstring" value="settings.xml"/>
+<config key="flow_stack"/>
+<config key="internal_node_subsettings">
+<entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
+</config>
+<config key="model">
+<entry key="ClassColumn" type="xstring" value="Gold"/>
+<entry key="Serialized Weka-Classifier" type="xstring" value="rO0ABXNyABl3ZWthLmNsYXNzaWZpZXJzLnRyZWVzLkZU8I0TKoDsiVgCAApaABBtX2NvbnZlcnROb21pbmFsWgAWbV9lcnJvck9uUHJvYmFiaWxpdGllc0kAEW1fbWluTnVtSW5zdGFuY2VzSQALbV9tb2RlbFR5cGVJABdtX251bUJvb3N0aW5nSXRlcmF0aW9uc1oACG1fdXNlQUlDRAAQbV93ZWlnaHRUcmltQmV0YUwAEW1fbm9taW5hbFRvQmluYXJ5dAAzTHdla2EvZmlsdGVycy9zdXBlcnZpc2VkL2F0dHJpYnV0ZS9Ob21pbmFsVG9CaW5hcnk7TAAQbV9yZXBsYWNlTWlzc2luZ3QAOkx3ZWthL2ZpbHRlcnMvdW5zdXBlcnZpc2VkL2F0dHJpYnV0ZS9SZXBsYWNlTWlzc2luZ1ZhbHVlcztMAAZtX3RyZWV0ACJMd2VrYS9jbGFzc2lmaWVycy90cmVlcy9mdC9GVHRyZWU7eHIAI3dla2EuY2xhc3NpZmllcnMuQWJzdHJhY3RDbGFzc2lmaWVyWj6EIb0mI00CAAFaAAdtX0RlYnVneHAAAAAAAABkAAAAAAAAAB4BAAAAAAAAAABwcHA="/>
+</config>
+<entry key="customDescription" type="xstring" isnull="true" value=""/>
+<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="name" type="xstring" value="FT (3.7)"/>
+<entry key="hasContent" type="xboolean" value="true"/>
+<entry key="isInactive" type="xboolean" value="false"/>
+<config key="ports">
+<config key="port_1">
+<entry key="index" type="xint" value="1"/>
+<entry key="port_spec_class" type="xstring" value="org.knime.ext.weka37.ports.WekaClassifierModelPortObjectSpec"/>
+<entry key="port_object_class" type="xstring" value="org.knime.ext.weka37.ports.WekaClassifierModelPortObject"/>
+<entry key="port_object_summary" type="xstring" value="FT"/>
+<entry key="port_spec_location" type="xstring" value="spec/spec.zip"/>
+<entry key="port_object_location" type="xstring" value="object/portobject.zip"/>
+<entry key="port_dir_location" type="xstring" value="port_1"/>
+</config>
+</config>
+<config key="filestores">
+<entry key="file_store_location" type="xstring" isnull="true" value=""/>
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
+</config>
+</config>
