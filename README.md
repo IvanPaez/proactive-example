@@ -3,6 +3,7 @@
 Created by: IvanPaez ivan.paez_anaya@irisa.fr 
 Universite de Rennes 1 - INRIA Bretagne-Atlantique, France
 
+Author(s): Viliam Simko, Ivan Paez
 Description: These are the worlflows of the fire monitoring example of the proactive approach 
 
 
@@ -15,18 +16,18 @@ output is ish-hiostory.table file (KNIME internal format)
 KNIME Workflow: 02 - Select ISH stations and download data
 this workflow takes only ISH stations from Mississippi that were active in the year 2010
 downloads "*.gz" compressed files containing their hourly temperatures from 2010
-files are downloaded from ftp://ftp.ncdc.noaa.gov/pub/data/noaa/2010/ and stored SEAMS14-proact/data/ISH/ish-downloaded directory
+files are downloaded from ftp://ftp.ncdc.noaa.gov/pub/data/noaa/2010/ and stored /proact/data/ISH/ish-downloaded directory
 the workflow also contains some optional visualizations (using OSM Map View)
 list of all ISH stations
 list of stations in Mississippi
 list of stations in Mississippi with color representing distance from "MERIDIAN NAS" station
-Shell script: SEAMS14-proact/data/ISH/extract-ish-downloaded.sh
-extracts all "*.gz" files (from ish-downloaded dir) into "*.txt" files (SEAMS14-proact/data/ISH/ish-extracted directory)
+Shell script: /proact/data/ISH/extract-ish-downloaded.sh
+extracts all "*.gz" files (from ish-downloaded dir) into "*.txt" files (/proact/data/ISH/ish-extracted directory)
 
 KNIME Workflow: 03 - Normalize ISH data
 reads data from ish-extracted dir
 converts them into CSV format while "normalizing" the data (e.g. interpolating missing values)
-CSV files are saved into SEAMS14-proact/data/ISH/ish-normalized directory
+CSV files are saved into /proact/data/ISH/ish-normalized directory
 there is an optional sub-workflow to visualize the quality of data (OSM Map View, green=ok, red=rubbish)
 
 KNIME Workflow: 04 - Enrich ISH data
@@ -40,13 +41,13 @@ $Temp$ < 15 => "Low"
 $Temp$ < 25 => "Normal"
 TRUE => "High"
 computes lags (-1,-2,-3,...) and anti-lags (+1, +2,+3...) for Temp and FirePotential columns
-assuming I'm now at the time t (row t in my table)
+assuming the system its now at the time t (row t in the fire potential table)
 I'll find in column Temp the current temperature
 In column Temp(-1) the temperature from the previous hour
 In column Temp(-8) the temperature from 8 hours ago
 Similarly, In column Temp(+1) the temperature from next hour
 In column Temp(+10) the temperature that is 10 hours in future
-writes the data into SEAMS14-proact/data/ISH/ish-enriched directory as *.table files (KNIME internal format)
+writes the data into /proact/data/ISH/ish-enriched directory as *.table files (KNIME internal format)
 each files represents data from a single ISH station (in Mississippi in year 2010)
 
 KNIME Workflow: 05 - Fire Reports (Download)
@@ -54,11 +55,11 @@ downloads fire reports data (*.kmz files) from:
 MODIS: http://activefiremaps.fs.fed.us/data/kml/conus_hist/2010/
 AVHRR: http://activefiremaps.fs.fed.us/data_avhrr/kml/conus_hist/
 Stores the KMZ files into MapsDownload directory within KNIME workspace
-Then I manually moved the directory into SEAMS14-proact/data/Fire Reports/MODIS directory
+This files were moved manually to the folder /proact/data/Fire Reports/MODIS directory
 Further in the pipeline, only the MODIS data are used!
 All KMZ files are extracted into KML files in a temporary directory
 data from KML files are extracted using a XML parser (XPath expressions)
-all extracted data are stored in a single table: SEAMS14-proact/data/Fire Reports/FireReports.table (KNIME internal format)
+all extracted data are stored in a single table: /proact/data/Fire Reports/FireReports.table (KNIME internal format)
 there is an optional visualization of the fire reports using "OSM Map View" (color represents the confidence of a report)
 
 KNIME Workflow: 07 - Simulate Systems (by connecting Fires+Temp)
@@ -74,7 +75,7 @@ the decision for using MLP model has been done in a different KNIME workflow
 the model is trained on "MERIDIAN NAS" station and simulates predictions for all other stations
 the simulated predictions are stored as columns "FP+1", ..., "FP+7"
 output of the "Joiner / Fires+Temp data" node is the input for our simulation of Simple, Reactive and Predictive systems
-then we run our simulation using Java code from SEAMS14-proact/simulated-system.jar with different parameters for different type of system:
+then we run our simulation using Java code from /proact/simulated-system.jar with different parameters for different type of system:
 Reactive
 Simple(every 1h) .. Simple(every 12h)
 Predictive(1) .. Predictive(7)
